@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "http://v15a1.github.io/Personal-Portfolio",
   "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
