@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* loading fonts */
+@font-face{
+  font-family: Gilroy-Thin;
+  src: local("Gilroy"), url(./assets/fonts/Gilroy-Thin.ttf)format("truetype");
+}
+@font-face{
+  font-family: Gilroy-UltraLight;
+  src: local("Gilroy"), url(./assets/fonts/Gilroy-UltraLight.ttf)format("truetype");
+}
+@font-face{
+  font-family: JetBrainsMono-Bold;
+  src: local("Gilroy"), url(./assets/fonts/JetBrainsMono-Bold.ttf)format("truetype");
+}
+@font-face{
+  font-family: JetBrainsMono-Regular;
+  src: local("Gilroy"), url(./assets/fonts/JetBrainsMono-Regular.ttf)format("truetype");
+}

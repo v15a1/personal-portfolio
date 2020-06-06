@@ -1,53 +1,57 @@
-import AppBar from "@material-ui/core/AppBar";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
 import React from "react";
-import { Tabs, Container } from "@material-ui/core";
-import Tab from "@material-ui/core/Tab";
-import { Logo } from "../../assets/logo";
+import { Logo } from "../../assets/images/logo";
+import ImageAssets from "../../assets/image-assets";
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1
-  },
-  logo: {
-    width: 135,
-    height: 43.54
-  }
-});
+export const Header = ({ styles }) => {
+  const topBarStyle = {
+    position: "fixed",
+    top: 0,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    height: 80,
+    backgroundColor: "#f8f8f8",
+    fontWeight: "bold",
+    padding: "0px 20px",
+    boxSizing: "border-box"
+  };
 
-const Header = () => {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const spanStyle = {
+    margin: 10
+  };
 
   return (
-    <nav className={classes.root}>
-      <AppBar position="static" color="default">
-        <Toolbar style={{ alignItems: "center", justifyContent: "center" }}>
-          <Grid container>
-            <Grid style={{ justifySelf: "flex-start" }} item>
-              <Container className={classes.logo}>
-                <Logo/>
-              </Container>
-            </Grid>
-            <Grid item>
-              <Grid justify={"flex-end"}>
-                <Tabs
-                  onChange={(e, v) => setValue(v)}
-                  value={value}
-                  aria-label="Navigation Tabs"
-                >
-                  <Tab label={"page 1"} />
-                  <Tab label={"page 2"} />
-                </Tabs>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </nav>
+    <div style={topBarStyle}>
+      <div>
+        <Logo />
+      </div>
+      <div>
+        {iconData.map(icon => {
+          return (
+            <a href={icon.url} target="_blank">
+              <img src={icon.imageSrc} width={30} style={spanStyle} />
+            </a>
+          );
+        })}
+      </div>
+    </div>
   );
 };
+
+const iconData = [
+  {
+    url: "https://github.com/v15a1",
+    imageSrc: ImageAssets.githubImage
+  },
+  {
+    url: "https://www.linkedin.com/in/visalrajapakse99/",
+    imageSrc: ImageAssets.linkedInImage
+  },
+  {
+    url: "https://medium.com/@visalrajapakse",
+    imageSrc: ImageAssets.mediumImage
+  }
+];
 
 export default Header;
