@@ -1,0 +1,57 @@
+.custom-div {
+    display: inline-block;
+    border: solid #000;
+    border-radius: 0.2em;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: transparent;
+    color: #000;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:hover {
+      background: #000;
+      color: #fff;
+    }
+    &.button{
+        cursor: pointer;
+    }
+    &.dark{
+        border: solid #FFF;
+        background: transparent;
+        color: #FFF;
+        &:hover{
+            background: #FFF;
+            color: #000;
+        }    
+    }
+  }
+
+//   .contact-info{
+//     display: inline-block;
+//     border: solid #FFF;
+//     border-radius: 0.2em;
+//     padding: 1rem 2rem;
+//     margin: 0;
+//     text-decoration: none;
+//     background: #000;
+//     color: #FFF;
+//     font-family: sans-serif;
+//     font-size: 1rem;
+//     line-height: 1;
+//     // cursor: pointer;
+//     text-align: center;
+//     transition: background 250ms ease-in-out, transform 150ms ease;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     &:hover{
+//         background: #FFF;
+//         color: #000;
+//     }    
+// }
+  

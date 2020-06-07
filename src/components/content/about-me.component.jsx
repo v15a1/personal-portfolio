@@ -3,11 +3,10 @@ import { Row, Col } from "react-flexbox-grid";
 import Constants from "../../constants";
 import { AboutMeImage } from "../../assets/images/about-me";
 import Fonts from "../../assets/fonts/fonts";
-import "./about-me.scss";
+// import "./about-me.scss";
 import Colors from "../../colors";
 
-const AboutMe = ({ styles, windowHeight, windowWidth }) => {
-  const { showSidebar } = styles;
+const AboutMe = ({ styles, windowHeight, windowWidth, darkmode }) => {
   var ReactRotatingText = require("react-rotating-text");
 
   return (
@@ -27,7 +26,7 @@ const AboutMe = ({ styles, windowHeight, windowWidth }) => {
             <span style={{ fontFamily: Fonts.GilroyBlack, fontSize: 60 }}>
               About Me
             </span>
-            <div style={{textAlign: "justify"}}>
+            <div style={{ textAlign: "justify" }}>
               <p style={Constants.paraStyle}>
                 Hey! I'm Visal, a Software Engineering undergrad studying at the
                 <span style={{ fontFamily: Fonts.JetBrainsMonoBold }}>
@@ -56,7 +55,7 @@ const AboutMe = ({ styles, windowHeight, windowWidth }) => {
             <span
               style={{
                 fontSize: 28,
-                color: Colors.yellowOrchre
+                color: darkmode ? Colors.darkModeYellow : Colors.yellowOrchre
               }}
             >
               I'm a fan of{<br />}
@@ -64,7 +63,9 @@ const AboutMe = ({ styles, windowHeight, windowWidth }) => {
             <span
               style={{
                 fontFamily: Fonts.JetBrainsMonoBold,
-                background: Colors.yellowOrchre
+                background: darkmode
+                  ? Colors.darkModeYellow
+                  : Colors.yellowOrchre
               }}
             >
               #<ReactRotatingText items={interests} />
@@ -88,7 +89,7 @@ export const ContactInfo = ({ text }) => {
   return (
     <Row style={{ margin: "10px 0 10px 0" }}>
       <div
-        className={"contact-info"}
+        className={"custom-div dark"}
         style={{ fontFamily: Fonts.JetBrainsMonoRegular }}
       >
         {text}

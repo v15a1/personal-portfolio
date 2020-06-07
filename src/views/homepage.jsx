@@ -21,7 +21,8 @@ export default class HomePage extends React.Component {
     super(props);
     this.state = {
       windowWidth: 0,
-      windowHeight: 0
+      windowHeight: 0,
+      darkmodeEnabled: false
     };
   }
 
@@ -41,8 +42,12 @@ export default class HomePage extends React.Component {
     this.setState({ windowWidth, windowHeight });
   }
 
+  callbackDarkMode = darkmode => {
+    this.setState({ darkmodeEnabled: !darkmode });
+  };
+
   render() {
-    const { windowWidth, windowHeight } = this.state;
+    const { windowWidth, windowHeight, darkmodeEnabled } = this.state;
 
     const styles = {
       topBarHeight: 80,
@@ -70,15 +75,24 @@ export default class HomePage extends React.Component {
           height: windowHeight,
           // scrollSnapType: "y proximity",
           overflowY: windowWidth > 768 ? "scroll" : null,
-          marginTop: Constants.appbarHeightPadding 
+          marginTop: Constants.appbarHeightPadding
         }}
       >
-        <Header styles={styles} darkmode={true}/>
+        <Header styles={styles} callback={this.callbackDarkMode} />
         <Grid fluid>
-            <LandingComponent windowHeight={windowHeight} windowWidth={windowWidth} />
-            <AboutMe styles={styles} windowHeight={windowHeight} windowWidth={windowWidth} />
+          {/* <h1>{this.state.darkmodeEnabled.toString()}</h1> */}
+          <LandingComponent
+            darkmode={darkmodeEnabled}
+            windowHeight={windowHeight}
+            windowWidth={windowWidth}
+          />
+          <AboutMe
+            styles={styles}
+            windowHeight={windowHeight}
+            windowWidth={windowWidth}
+            darkmode={darkmodeEnabled}
+          />
         </Grid>
-
       </div>
     );
   }

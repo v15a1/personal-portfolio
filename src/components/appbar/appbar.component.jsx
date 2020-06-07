@@ -7,7 +7,7 @@ import { MoonIcon } from "../../assets/images/moon-icon";
 import Colors from "../../colors";
 import { SunIcon } from "../../assets/images/sun-icon";
 
-export const Header = ({ styles }) => {
+export const Header = ({ callback }) => {
   const [darkmode, setDarkMode] = useState(false);
 
   const topBarStyle = {
@@ -21,7 +21,8 @@ export const Header = ({ styles }) => {
     backgroundColor: darkmode ? Colors.ash : Colors.lightGrey,
     fontWeight: "bold",
     padding: "0px 20px",
-    boxSizing: "border-box"
+    boxSizing: "border-box",
+    zIndex: 50
   };
 
   const spanStyle = {
@@ -45,6 +46,7 @@ export const Header = ({ styles }) => {
         <a
           onClick={() => {
             darkmode ? setDarkMode(false) : setDarkMode(true);
+            callback(darkmode);
           }}
         >
           {darkmode ? (

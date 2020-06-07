@@ -1,6 +1,7 @@
 import React from "react";
+import Colors from "../../colors";
 
-export const CircleBackground = ({ style }) => {
+export const CircleBackground = ({ style, darkmode }) => {
   return (
     <svg
       style={style}
@@ -8,7 +9,7 @@ export const CircleBackground = ({ style }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="360" cy="360" r="360" fill="#FFE4AE" />
+      <circle cx="360" cy="360" r="360" fill={darkmode ? Colors.darkModeYellow : Colors.lightModeYellow} />
     </svg>
   );
 };
