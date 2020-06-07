@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import ImageAssets from "../../assets/image-assets";
 import { CircleBackground } from "../../assets/images/circle-background";
-import { Grid, Row, Col } from "react-flexbox-grid";
+import { Row, Col } from "react-flexbox-grid";
 import Fonts from "../../assets/fonts/fonts";
-// import Pdf from "."
-// import "../../Visal-Rajapakse.pdf";
+import "./landing-page.scss";
+
+
 
 export const LandingComponent = ({ windowWidth, windowHeight }) => {
   const [divHeight, setHeight] = useState(0);
@@ -53,13 +54,13 @@ export const LandingComponent = ({ windowWidth, windowHeight }) => {
           <div>
             {personalInterests.map(interest => {
               return (
-                <p style={{ fontFamily: Fonts.JetBrainsMonoBold }}>
+                <p style={{ fontFamily: Fonts.JetBrainsMonoBold, fontSize : 16 }}>
                   {interest}
                 </p>
               );
             })}
           </div>
-          <a target="_blank" className={"cv-button"} href="./cv.pdf">
+          <a target="_blank" className={"cv-button"} href="cv.pdf">
             <span style={{ fontFamily: Fonts.JetBrainsMonoRegular }}>
               Download CV
             </span>

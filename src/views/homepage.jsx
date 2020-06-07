@@ -4,7 +4,7 @@ import AboutMe from "../components/content/about-me.component";
 import ImageAssets from "../assets/image-assets";
 import { CircleBackground } from "../assets/images/circle-background";
 import { Grid, Row, Col } from "react-flexbox-grid";
-import ScrollSnap from "scroll-snap";
+// import ScrollSnap from "scroll-snap";
 import Fonts from "../assets/fonts/fonts";
 
 import "./homepage.scss";
@@ -17,16 +17,6 @@ function callback() {
 export default class HomePage extends React.Component {
   containers = React.createRef();
 
-  bindScrollSnap() {
-    const element = this.containers.current;
-    const snapElement = new ScrollSnap(element, {
-      snapDestinationY: "90%",
-      time: true
-    });
-
-    snapElement.bind(callback);
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +27,6 @@ export default class HomePage extends React.Component {
 
   componentDidMount() {
     this.updateDimensions();
-    this.bindScrollSnap();
     window.addEventListener("resize", this.updateDimensions.bind(this));
   }
 
@@ -79,12 +68,12 @@ export default class HomePage extends React.Component {
           minHeight: "100vh",
           position: "relative",
           height: windowHeight,
-          scrollSnapType: "y proximity",
+          // scrollSnapType: "y proximity",
           overflowY: windowWidth > 768 ? "scroll" : null,
           marginTop: Constants.appbarHeightPadding 
         }}
       >
-        <Header styles={styles} />
+        <Header styles={styles} darkmode={true}/>
         <Grid fluid>
             <LandingComponent windowHeight={windowHeight} windowWidth={windowWidth} />
             <AboutMe styles={styles} windowHeight={windowHeight} windowWidth={windowWidth} />

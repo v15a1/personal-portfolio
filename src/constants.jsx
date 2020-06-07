@@ -1,6 +1,11 @@
+import Fonts from "./assets/fonts/fonts";
+
 const Constants = {
     appbarHeightPadding: 80,
-    yellow: "#FFF9ED"
+    paraStyle:{
+        fontFamily : Fonts.JetBrainsMonoRegular,
+        fontSize: 18
+    }
 }
 
 export default Constants

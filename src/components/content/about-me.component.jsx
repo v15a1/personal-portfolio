@@ -1,40 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col } from "react-flexbox-grid";
 import Constants from "../../constants";
 import { AboutMeImage } from "../../assets/images/about-me";
+import Fonts from "../../assets/fonts/fonts";
+import "./about-me.scss";
+import Colors from "../../colors";
 
 const AboutMe = ({ styles, windowHeight, windowWidth }) => {
   const { showSidebar } = styles;
-
-  const contentStyle = {
-    paddingTop: showSidebar ? 20 : styles.topBarHeight + 20,
-    paddingRight: 20,
-    paddingBottom: showSidebar ? 20 : styles.footerMenuHeight + 20,
-    paddingLeft: showSidebar ? styles.sidebarWidth + 20 : 20
-  };
+  var ReactRotatingText = require("react-rotating-text");
 
   return (
     <Row
       style={{
-        height: windowHeight
-        // background: Constants.yellow,
+        background: Colors.black,
+        color: Colors.white
         // paddingTop: Constants.appbarHeightPadding
       }}
     >
-      <Col xs={12} sm={12} md={4} lg={3}>
-        <AboutMeImage />
+      <Col xs={12} sm={12} md={6} lg={6}>
+        {/* <AboutMeImage /> */}
       </Col>
-      <Col xs={12} sm={12} md={8} lg={9}>
-        <div style={{width: 500}}>
-          <h1>About Me</h1>
-          <p style={{textAlign: "justify"}}>
-            Hey! I'm Visal, a Software Engineering undergrad studying at the
-            Informatics Institute of Technology in Colombo, Sri Lanka affliated
-            with the University of Westminster, England. Enthusiast in Mobile
-            Application Development, or Front End Development. The eventual
-            career goal is to become a fully fledged and fully furnished iOS
-            application developer.
-          </p>
+      <Col xs={12} sm={12} md={6} lg={6}>
+        <div style={{ padding: 20, lineHeight: 1.6 }}>
+          <div style={{ textAlign: "left" }}>
+            <span style={{ fontFamily: Fonts.GilroyBlack, fontSize: 60 }}>
+              About Me
+            </span>
+            <div style={{textAlign: "justify"}}>
+              <p style={Constants.paraStyle}>
+                Hey! I'm Visal, a Software Engineering undergrad studying at the
+                <span style={{ fontFamily: Fonts.JetBrainsMonoBold }}>
+                  {" "}
+                  Informatics Institute of Technology
+                </span>{" "}
+                in Colombo, Sri Lanka affliated with the University of
+                Westminster, England. Enthusiast in Mobile Application
+                Development, or Front End Development . The eventual career goal
+                is to become a fully fledged and fully furnished{" "}
+                <span style={{ fontFamily: Fonts.JetBrainsMonoBold }}>
+                  iOS application developer.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <span
+            style={{
+              fontFamily: Fonts.JetBrainsMonoRegular,
+              fontSize: 28,
+              color: Colors.black,
+              textAlign: "center"
+            }}
+          >
+            <span
+              style={{
+                fontSize: 28,
+                color: Colors.yellowOrchre
+              }}
+            >
+              I'm a fan of{<br />}
+            </span>
+            <span
+              style={{
+                fontFamily: Fonts.JetBrainsMonoBold,
+                background: Colors.yellowOrchre
+              }}
+            >
+              #<ReactRotatingText items={interests} />
+            </span>
+          </span>
+          <br />
+          <div style={{ marginTop: windowHeight / 10 }}>
+            {contactInfo.map(info => (
+              <ContactInfo text={info} />
+            ))}
+          </div>
         </div>
       </Col>
     </Row>
@@ -42,3 +83,31 @@ const AboutMe = ({ styles, windowHeight, windowWidth }) => {
 };
 
 export default AboutMe;
+
+export const ContactInfo = ({ text }) => {
+  return (
+    <Row style={{ margin: "10px 0 10px 0" }}>
+      <div
+        className={"contact-info"}
+        style={{ fontFamily: Fonts.JetBrainsMonoRegular }}
+      >
+        {text}
+      </div>
+    </Row>
+  );
+};
+
+const interests = [
+  "mobile_app_dev",
+  "front_end_dev",
+  "android_dev",
+  "drawing",
+  "ui/ux",
+  "ios_dev",
+  "graphic_designing"
+];
+
+const contactInfo = [
+  "Email : visalrajapakse@gmail.com",
+  "Phone : +94 77 011 5903"
+];
